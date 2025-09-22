@@ -1,1 +1,2532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroSecure | AI Cybersecurity Solutions</title>
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/?size=80&id=pnUfrhjBRScY&format=png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="NeuroSecure offers cutting-edge AI solutions combined with military-grade cybersecurity strategies to protect your data and enhance your business operations.">
+    <meta name="keywords" content="AI, Cybersecurity, Data Protection, Business Solutions">
+    <meta name="author" content="NeuroSecure">
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
+        body {
+            background: linear-gradient(135deg, #0c162d 0%, #1e3a5f 100%);
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(12, 22, 45, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: #4e9de5;
+        }
+
+        /* Desktop Navigation */
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-links > li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .nav-links a:hover {
+            color: #4e9de5;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown Menu */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(12, 22, 45, 0.98);
+            width: 200px;
+            border-radius: 8px;
+            padding: 1rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: all 0.3s;
+            z-index: 100;
+        }
+
+        .nav-links li:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown a {
+            padding: 0.7rem 1.5rem;
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .dropdown a:hover {
+            background: rgba(78, 157, 229, 0.1);
+            color: #4e9de5;
+            padding-left: 2rem;
+        }
+
+        .dropdown a i {
+            margin-right: 0.5rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Navigation Actions */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            color: #e0aec0;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: relative;
+            padding: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .action-btn:hover {
+            color: #4e9de5;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: #f87171;
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50px;
+            transition: background 0.3s;
+        }
+
+        .user-profile:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .user-name {
+            font-weight: 500;
+        }
+        .user-profile i {
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        .user-profile:hover i {
+            transform: rotate(180deg);
+        }
+         .action-btn:hover .notification-badge {
+            animation: bounce 0.5s;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        /* Profile Dropdown */
+        #profileDropdown {
+            right: 0;
+            left: auto;
+            width: 180px;
+        }
+        .user-profile:hover .dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Mobile Navigation */
+        .mobile-nav-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 400px;
+            height: 100vh;
+            background: rgba(12, 22, 45, 0.98);
+            padding: 5rem 2rem;
+            z-index: 999;
+            transition: right 0.3s ease-in-out;
+            box-shadow: -5px 0 25px rgba(0, 0, 0, 0.4);
+            overflow-y: auto;
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 1.2rem 0;
+            font-size: 1.2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: color 0.3s;
+        }
+
+        .mobile-nav a:hover {
+            color: #4e9de5;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            z-index: 998;
+            display: none;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6rem 5% 3rem;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%234e9de5" fill-opacity="0.1" d="M0,128L48,138.7C96,149,192,171,288,170.7C384,171,480,149,576,138.7C672,128,768,128,864,138.7C960,149,1056,171,1152,176C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: contain;
+        }
+
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(90deg, #4e9de5 0%, #9d7af0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
+            color: #c2c2c2;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 5px 15px rgba(78, 157, 229, 0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(78, 157, 229, 0.6);
+        }
+
+        /* Content Sections */
+        section {
+            padding: 5rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #4e9de5;
+        }
+
+        .section-title p {
+            color: #a0aec0;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #7a6af0;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #4e9de5;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: (130deg, #0c162d 0%, #1e3a5f 100%);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Cybersecurity Section */
+        .cyber-strategies {
+            background: (130deg, #0c162d 0%, #1e3a5f 100%);
+        }
+
+        .strategies {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .strategy {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .strategy:hover {
+            transform: scale(1.03);
+            background: rgba(78, 157, 229, 0.1);
+        }
+
+        .strategy i {
+            font-size: 2rem;
+            color: #4e9de5;
+            margin-bottom: 1rem;
+        }
+
+        /* Detailed Info Sections */
+        .info-section {
+            margin: 3rem 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border-left: 4px solid #4e9de5;
+        }
+
+        .info-card h3 {
+            color: #4e9de5;
+            margin-bottom: 1rem;
+        }
+
+        /* Terminal Section */
+        .terminal {
+            background: #0c162d;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #2d3748;
+        }
+
+        .terminal-title {
+            font-weight: 700;
+            color: #4e9de5;
+        }
+
+        .terminal-body {
+            line-height: 1.8;
+        }
+
+        .terminal-command {
+            color: #7a6af0;
+        }
+
+        .terminal-result {
+            color: #4ade80;
+            margin-bottom: 1rem;
+        }
+
+        .terminal-alert {
+            color: #f87171;
+            font-weight: 700;
+            animation: blink 2s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            color: #4e9de5;
+            margin-bottom: 0.2rem;
+        }
+
+        /* ChatGPT Feature */
+        .chatbot-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+
+        .chatbot-button {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4e9de5 0%, #7a6af0 100%);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s;
+        }
+
+        .chatbot-button:hover {
+            transform: scale(1.1);
+        }
+
+        .chatbot-button i {
+            font-size: 24px;
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            height: 450px;
+            background: rgba(12, 22, 45, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            transform: translateY(20px);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-window.active {
+            transform: translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .chatbot-header {
+            padding: 1rem;
+            background: rgba(12, 22, 45, 0.98);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #4e9de5;
+        }
+
+        .chatbot-close {
+            background: none;
+            border: none;
+            color: #e0e0e0;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 0.8rem 1rem;
+            border-radius: 15px;
+            line-height: 1.4;
+        }
+
+        .bot-message {
+            background: rgba(78, 157, 229, 0.2);
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
+        }
+
+        .user-message {
+            background: rgba(122, 106, 240, 0.2);
+            align-self: flex-end;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            margin-left: 0.5rem;
+            background: linear-gradient(135deg, #4e9de5 0%, #7a6af0 100%);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #0c162d;
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4e9de5;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #4e9de5;
+        }
+
+        .copyright {
+            margin-top: 2rem;
+            color: #718096;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .user-name {
+                display: none;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .chatbot-window {
+                width: 320px;
+                height: 400px;
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding-top: 4rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 0.8rem 1.8rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            .chatbot-window {
+                width: 300px;
+                right: 5px;
+                bottom: 60px;
+            }
+            
+            .chatbot-container {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        /* Mobile dropdowns: hide submenu on mobile and show when toggled via JS */
+        @media (max-width: 992px) {
+            .mobile-nav li {
+                position: relative;
+            }
+
+            .mobile-nav .dropdown {
+                max-height: 0; /* collapsed by default on mobile */
+                overflow: hidden;
+                transition: max-height 300ms ease, padding 200ms ease;
+                position: static;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+                box-shadow: none;
+                background: transparent;
+                padding: 0 0 0 1rem;
+                margin: 0;
+            }
+
+            .mobile-nav .dropdown a {
+                padding: 0.6rem 0;
+                border-bottom: none;
+                padding-left: 0.5rem;
+            }
+
+            /* When open, animate to a reasonable max height; use large value to accommodate content */
+            .mobile-nav .dropdown.open {
+                display: block;
+                max-height: 1000px;
+                margin-bottom: 1rem;
+            }
+
+            /* Submenu toggle button */
+            .submenu-toggle {
+                background: none;
+                border: none;
+                color: #e0e0e0;
+                font-size: 1rem;
+                cursor: pointer;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.6rem;
+                border-radius: 6px;
+            }
+
+            .submenu-toggle i {
+                transition: transform 250ms ease;
+                font-size: 0.9rem;
+            }
+
+            .submenu-toggle[aria-expanded="true"] i {
+                transform: rotate(180deg);
+            }
+
+            /* Make parent links space the chevron to the right on mobile */
+            .mobile-nav li > a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with enhanced navigation -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-brain logo-icon"></i>
+            <h1>NeuroSecure</h1>
+        </div>
+        
+        <!-- Desktop Navigation with enhanced features -->
+        <nav class="desktop-nav">
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li>
+                    <a href="#ai-services">AI Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/NinjaTech/"><i class="fas fa-robot"></i> NinjaTech</a>
+                        <a href="https://jahidads.github.io/gmailtricks.bd/"><i class="fas fa-envelope"></i> Gmail Generator</a>
+                        <a href="https://jahidads.github.io/BookHub/"><i class="fas fa-chart-line"></i> BookHub</a>
+                        <a href="https://jahidads.github.io/LLM-Portfolio/"><i class="fas fa-brain"></i> LLM Services</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#cybersecurity">Cybersecurity <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/CyberShield/"><i class="fas fa-shield-alt"></i> CyberShield</a>
+                        <a href="https://jahidads.github.io/Cyber-Security/"><i class="fas fa-lock"></i> Cybersecpro</a>
+                        <a href="https://jahidads.github.io/SecureMail/"><i class="fas fa-user-shield"></i> SecureMail</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-network-wired"></i> Network Security</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#solutions">Solutions <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/DevCaseHub/"><i class="fas fa-cloud"></i> Cloud Security</a>
+                        <a href="https://jahidads.github.io/EasyPay/"><i class="fas fa-credit-card"></i> Online Pay</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-mobile-alt"></i> Protection</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-code"></i> DevSecOps</a>
+                    </div>
+                </li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="action-btn" id="notificationBtn" aria-haspopup="true" aria-expanded="false">
+                    <i class="far fa-bell"></i>
+                    <span class="notification-badge">3</span>
+                </button>
+                <div class="dropdown" id="notificationDropdown" role="menu" aria-label="Notifications" style="right:0; left:auto; width:260px;">
+                    <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-exclamation-circle"></i> New login from unknown device</a>
+                    <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-shield-alt"></i> Threat scan completed</a>
+                    <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-envelope"></i> 1 new message received</a>
+                </div>
+                <script>
+                    // Notification dropdown functionality
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const notificationBtn = document.getElementById('notificationBtn');
+                        const notificationDropdown = document.getElementById('notificationDropdown');
+                        let notifOpen = false;
+
+                        function openNotif() {
+                            notificationDropdown.style.opacity = '1';
+                            notificationDropdown.style.visibility = 'visible';
+                            notificationDropdown.style.transform = 'translateY(0)';
+                            notificationBtn.setAttribute('aria-expanded', 'true');
+                            notifOpen = true;
+                        }
+                        function closeNotif() {
+                            notificationDropdown.style.opacity = '';
+                            notificationDropdown.style.visibility = '';
+                            notificationDropdown.style.transform = '';
+                            notificationBtn.setAttribute('aria-expanded', 'false');
+                            notifOpen = false;
+                        }
+
+                        if (notificationBtn && notificationDropdown) {
+                            notificationBtn.addEventListener('click', function(e) {
+                                e.stopPropagation();
+                                notifOpen ? closeNotif() : openNotif();
+                            });
+
+                            notificationBtn.addEventListener('keydown', function(e) {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    notifOpen ? closeNotif() : openNotif();
+                                }
+                                if (e.key === 'Escape') {
+                                    closeNotif();
+                                }
+                            });
+
+                            document.addEventListener('click', function(e) {
+                                if (notifOpen && !notificationBtn.contains(e.target) && !notificationDropdown.contains(e.target)) {
+                                    closeNotif();
+                                }
+                            });
+
+                            window.addEventListener('resize', closeNotif);
+                        }
+                    });
+                </script>
+                
+                <a href="mailto:jahidads@yhaoo.com" class="action-btn" title="Send Email">
+                    <i class="far fa-envelope"></i>
+                    <span class="notification-badge">1</span>
+                </a>
+                
+                <div class="user-profile" id="userProfile" tabindex="0" aria-haspopup="true" aria-expanded="false">
+                    <img class="user-avatar" src="https://img.icons8.com/?size=50&id=7819&format=png" alt="Jahid Hasan" />
+                    <div class="user-name">Jahid Hasan</div>
+                    <i class="fas fa-chevron-down"></i>
+                    <div class="dropdown" id="profileDropdown" role="menu" aria-label="Profile menu">
+                        <a href="https://jahidads.github.io/Profile-setting/"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="https://jahidads.github.io/NeuroSecure-Login-Sign-Up/" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                        <script>
+                            // Real-time logout feature
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const logoutBtn = document.getElementById('logoutBtn');
+                                if (logoutBtn) {
+                                    logoutBtn.addEventListener('click', function(e) {
+                                        e.preventDefault();
+                                        // Optionally clear session/local storage
+                                        if (window.localStorage) localStorage.clear();
+                                        if (window.sessionStorage) sessionStorage.clear();
+                                        // Show feedback
+                                        logoutBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging out...';
+                                        setTimeout(function() {
+                                            // Redirect to login or home page after "logout"
+                                            window.location.href = 'https://jahidads.github.io/NeuroSecure-Login-Sign-Up/';
+                                        }, 1200);
+                                    });
+                                }
+                            });
+                        </script>
+                    </div>
+                </div>
+                <script>
+                    // Responsive user profile dropdown for desktop nav
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const userProfile = document.getElementById('userProfile');
+                        const profileDropdown = document.getElementById('profileDropdown');
+                        let dropdownOpen = false;
+
+                        function openDropdown() {
+                            profileDropdown.style.opacity = '1';
+                            profileDropdown.style.visibility = 'visible';
+                            profileDropdown.style.transform = 'translateY(0)';
+                            userProfile.setAttribute('aria-expanded', 'true');
+                            dropdownOpen = true;
+                        }
+                        function closeDropdown() {
+                            profileDropdown.style.opacity = '';
+                            profileDropdown.style.visibility = '';
+                            profileDropdown.style.transform = '';
+                            userProfile.setAttribute('aria-expanded', 'false');
+                            dropdownOpen = false;
+                        }
+
+                        if (userProfile && profileDropdown) {
+                            // Show dropdown on hover (desktop)
+                            userProfile.addEventListener('mouseenter', openDropdown);
+                            userProfile.addEventListener('mouseleave', closeDropdown);
+
+                            // Toggle dropdown on click (touch/mobile)
+                            userProfile.addEventListener('click', function(e) {
+                                // Only toggle on click if not hovered (for mobile)
+                                if (window.innerWidth <= 992) {
+                                    e.stopPropagation();
+                                    dropdownOpen ? closeDropdown() : openDropdown();
+                                }
+                            });
+
+                            // Keyboard accessibility
+                            userProfile.addEventListener('keydown', function(e) {
+                                if (e.key === 'Enter' || e.key === ' ') {
+                                    e.preventDefault();
+                                    dropdownOpen ? closeDropdown() : openDropdown();
+                                }
+                                if (e.key === 'Escape') {
+                                    closeDropdown();
+                                }
+                            });
+
+                            // Close dropdown when clicking outside
+                            document.addEventListener('click', function(e) {
+                                if (dropdownOpen && !userProfile.contains(e.target)) {
+                                    closeDropdown();
+                                }
+                            });
+
+                            // Responsive: close dropdown on resize if needed
+                            window.addEventListener('resize', closeDropdown);
+                        }
+                    });
+                </script>
+            </div>
+        </nav>
+        
+        <!-- Mobile Navigation Button -->
+        <button class="mobile-nav-btn" id="mobileNavBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <!-- Mobile Navigation -->
+        <nav class="mobile-nav" id="mobileNav">
+            <button class="close-btn" id="closeNavBtn">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <ul>
+                <li style="display: flex; justify-content: center; align-items: center; width: 100%; margin: 1.5rem 0;">
+                    <a href="/" title="NeuroSecure Home" style="display: flex; align-items: center; gap: 0.5rem;">
+                        <i class="fas fa-brain" style="font-size: 2rem; color: #4e9de5;"></i>
+                        <span style="font-weight: 700; font-size: 1.2rem; color: #4e9de5;">NeuroSecure</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#ai-services">AI Services</a>
+                    <button class="submenu-toggle" aria-expanded="false" aria-label="Toggle AI Services submenu"><i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/NinjaTech/"><i class="fas fa-robot"></i> NinjaTech</a>
+                        <a href="https://jahidads.github.io/gmailtricks.bd/"><i class="fas fa-envelope"></i> Gmail Generator</a>
+                        <a href="https://jahidads.github.io/BookHub/"><i class="fas fa-chart-line"></i> BookHub</a>
+                        <a href="https://jahidads.github.io/LLM-Portfolio/"><i class="fas fa-brain"></i> LLM Services</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#cybersecurity">Cybersecurity</a>
+                    <button class="submenu-toggle" aria-expanded="false" aria-label="Toggle Cybersecurity submenu"><i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/CyberShield/"><i class="fas fa-shield-alt"></i> CyberShield</a>
+                        <a href="https://jahidads.github.io/Cyber-Security/"><i class="fas fa-lock"></i> Cybersecpro</a>
+                        <a href="https://jahidads.github.io/SecureMail/"><i class="fas fa-user-shield"></i> SecureMail</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-network-wired"></i> Network Security</a>
+                    </div>
+                </li>
+                <li>
+                    <a href="#solutions">Solutions</a>
+                    <button class="submenu-toggle" aria-expanded="false" aria-label="Toggle Solutions submenu"><i class="fas fa-chevron-down"></i></button>
+                    <div class="dropdown">
+                        <a href="https://jahidads.github.io/DevCaseHub/"><i class="fas fa-cloud"></i> Cloud Security</a>
+                        <a href="https://jahidads.github.io/EasyPay/"><i class="fas fa-credit-card"></i> Online Pay</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-mobile-alt"></i> Protection</a>
+                        <a href="https://jahidads.github.io/WorkHub/"><i class="fas fa-code"></i> DevSecOps</a>
+                    </div>
+                </li>
+                <li><a href="mailto:jahidads@yahoo.com"> Messages</a></li>
+                <li><a href="https://jahidads.github.io/Profile-setting/">Settings</a></li>
+                <li><a href="https://jahidads.github.io/NeuroSecure-Login-Sign-Up/" id="logoutBtnMobile">Logout</a></li>
+                                <script>
+                                    // Real-time logout feature for mobile nav
+                                    document.addEventListener('DOMContentLoaded', function() {
+                                        const logoutBtnMobile = document.getElementById('logoutBtnMobile');
+                                        if (logoutBtnMobile) {
+                                            logoutBtnMobile.addEventListener('click', function(e) {
+                                                e.preventDefault();
+                                                // Optionally clear session/local storage
+                                                if (window.localStorage) localStorage.clear();
+                                                if (window.sessionStorage) sessionStorage.clear();
+                                                // Show feedback
+                                                logoutBtnMobile.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging out...';
+                                                setTimeout(function() {
+                                                    // Redirect to login or home page after "logout"
+                                                    window.location.href = 'https://jahidads.github.io/NeuroSecure-Login-Sign-Up/';
+                                                }, 1200);
+                                            });
+                                        }
+                                    });
+                                </script>
+                <li style="display: flex; justify-content: center; gap: 1.5rem; margin: 1.5rem 0;">
+                    <a href="https://www.facebook.com/jahidads1" title="Facebook" target="_blank" rel="noopener">
+                        <i class="fab fa-facebook-f" style="font-size: 1.5rem; color: #4e9de5;"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jahidads" title="LinkedIn" target="_blank" rel="noopener">
+                        <i class="fab fa-linkedin-in" style="font-size: 1.5rem; color: #4e9de5;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/jahidads" title="Instagram" target="_blank" rel="noopener">
+                        <i class="fab fa-instagram" style="font-size: 1.5rem; color: #4e9de5;"></i>
+                    </a>
+                </li>
+                <li style="margin-top: 2rem; text-align: center; color: #718096; font-size: 0.9rem;">&copy; 2025 NeuroSecure</li>
+            </ul>
+        </nav>
+        
+        <!-- Overlay for mobile navigation -->
+        <div class="overlay" id="overlay"></div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero" aria-label="Hero section">
+        <!-- Animated visual orbs -->
+        <div class="hero-visuals" aria-hidden="true">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+            <!-- subtle radial glow under CTAs -->
+            <div class="cta-glow"></div>
+        </div>
+
+        <h2 class="hero-title" id="heroTitle">Intelligent AI Solutions with Military-Grade Security</h2>
+
+        <style>
+        /* Per-letter animation styles */
+        .hero-title .char { display:inline-block; will-change: transform, opacity; transform-origin: center; }
+        .hero-title .char.highlight-gradient {
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Fly away (up) */
+        @keyframes flyAway {
+          0%   { transform: translateY(0) rotate(0); opacity: 1; }
+          100% { transform: translateY(-120vh) rotate(12deg); opacity: 0; }
+        }
+
+        /* Return from below into place */
+        @keyframes comeBack {
+          0%   { transform: translateY(120px) rotate(-8deg); opacity: 0; }
+          100% { transform: translateY(0) rotate(0); opacity: 1; }
+        }
+
+        .char.flyAway {
+          animation: flyAway 700ms cubic-bezier(.2,.8,.2,1) forwards;
+          animation-delay: var(--d, 0ms);
+        }
+
+        .char.comeBack {
+          animation: comeBack 700ms cubic-bezier(.2,.8,.2,1) forwards;
+          animation-delay: var(--d, 0ms);
+        }
+        </style>
+
+        <script>
+        (function () {
+          const title = document.getElementById('heroTitle');
+          if (!title) return;
+
+          // Split text into chars and mark highlight range if present
+          function splitToChars(el) {
+            if (el.dataset.split === 'true') return;
+            const text = el.textContent.trim();
+            const highlightText = 'Intelligent AI Solutions with Military-Grade Security';
+            const start = text.indexOf(highlightText);
+            const frag = document.createDocumentFragment();
+
+            for (let i = 0; i < text.length; i++) {
+              const ch = text[i];
+              const span = document.createElement('span');
+              span.className = 'char';
+              // preserve spaces
+              span.textContent = ch === ' ' ? '\u00A0' : ch;
+              // apply highlight-gradient to highlight substring chars
+              if (start !== -1 && i >= start && i < start + highlightText.length) {
+                span.classList.add('highlight-gradient');
+              }
+              frag.appendChild(span);
+            }
+            el.innerHTML = '';
+            el.appendChild(frag);
+            el.dataset.split = 'true';
+          }
+
+          // Orchestrate fly-away then return animations
+          function playFlyReturn() {
+            splitToChars(title);
+            const chars = Array.from(title.querySelectorAll('.char'));
+            const stagger = 45; // ms per char
+            const flyDuration = 700; // matches CSS
+            const maxDelay = stagger * (chars.length - 1);
+            // set per-char delay variable
+            chars.forEach((c, i) => c.style.setProperty('--d', `${i * stagger}ms`));
+
+            // start fly away
+            chars.forEach(c => c.classList.remove('comeBack'));
+            // trigger reflow then add class to ensure animation starts consistently
+            void title.offsetWidth;
+            chars.forEach(c => c.classList.add('flyAway'));
+
+            // After all flew away, instantly place them below (no transition) and then animate them back with stagger
+            const returnStart = maxDelay + flyDuration + 220;
+            setTimeout(() => {
+              // clear fly animations and place below
+              chars.forEach(c => {
+                c.classList.remove('flyAway');
+                c.style.animation = 'none';
+                c.style.transform = 'translateY(120px) rotate(-8deg)';
+                c.style.opacity = '0';
+              });
+              // force reflow so the below position is applied
+              void title.offsetWidth;
+
+              // reapply per-char delays and trigger comeBack
+              chars.forEach((c, i) => c.style.setProperty('--d', `${i * stagger}ms`));
+              // small timeout to allow the style changes to settle
+              setTimeout(() => {
+                chars.forEach(c => {
+                  c.style.animation = '';
+                  c.classList.add('comeBack');
+                  // cleanup after animation ends
+                  c.addEventListener('animationend', function cleanup(e) {
+                    if (e.animationName === 'comeBack') {
+                      c.classList.remove('comeBack');
+                      c.style.transform = '';
+                      c.style.opacity = '';
+                      c.style.removeProperty('--d');
+                      c.style.removeProperty('animation');
+                      c.removeEventListener('animationend', cleanup);
+                    }
+                  });
+                });
+              }, 20);
+            }, returnStart);
+          }
+
+          // Wait for the initial hero-title "animated" class (existing first animation) and then run the sequence
+          function onAnimated() {
+            // Start the fly/return animation shortly after initial reveal completes
+            setTimeout(playFlyReturn, 420);
+          }
+
+          // Observe class changes on the title to detect "animated" addition
+          const mo = new MutationObserver((mutations) => {
+            for (const m of mutations) {
+              if (m.attributeName === 'class' && title.classList.contains('animated')) {
+                mo.disconnect();
+                onAnimated();
+                break;
+              }
+            }
+          });
+          mo.observe(title, { attributes: true });
+
+          // If it's already animated (race), fire directly
+          if (title.classList.contains('animated')) {
+            mo.disconnect();
+            onAnimated();
+          }
+        })();
+        </script>
+        <p class="hero-subtitle">Leverage the power of artificial intelligence while ensuring your data remains protected with our cutting-edge cybersecurity strategies</p>
+
+        <div style="top: -15px;" class="hero-actions" role="region" aria-label="Primary actions">
+            <a href="#solutions" class="btn hero-btn pulse" id="exploreSolutions" aria-label="Explore our solutions">Explore Our Solutions</a>
+        </div>
+
+        <div class="trust-badges scroll-animate" aria-hidden="false" role="list" aria-label="Trust badges">
+            <span class="badge badge-anim scroll-animate" role="listitem" tabindex="0" style="--d:0s; transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: 0s;"><strong>300+</strong> Enterprises</span>
+            <span class="badge badge-anim scroll-animate" role="listitem" tabindex="0" style="--d:0.12s; transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: 0.12s;">ISO 27001</span>
+            <span class="badge badge-anim scroll-animate" role="listitem" tabindex="0" style="--d:0.24s; transition: opacity 0.7s ease, transform 0.7s ease; transition-delay: 0.24s;">GDPR-ready</span>
+        </div>
+        <button style="width: 40px; height: 40px; top: 650px; left: 50%; transform: translateX(-50%);" class="scroll-down" aria-label="Scroll down to next section" onclick="document.getElementById('ai-services').scrollIntoView({ behavior: 'smooth' });">
+            <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <style>
+        /* Unique floating + shimmer animation for trust badges */
+        .trust-badges { display:flex; gap:0.6rem; margin-top:0.8rem; align-items:center; z-index:2; }
+        .badge-anim {
+            position: relative;
+            padding: 0.45rem 0.7rem;
+            border-radius: 10px;
+            color: #e6eef8;
+            font-weight: 600;
+            font-size: 0.9rem;
+            background: linear-gradient(90deg, rgba(78,157,229,0.06), rgba(157,122,240,0.04));
+            border: 1px solid rgba(255,255,255,0.03);
+            backdrop-filter: blur(6px);
+            transform-origin: center;
+            transition: transform .28s ease, box-shadow .28s ease;
+            animation:
+                floaty 3.6s cubic-bezier(.4,0,.2,1) calc(var(--d)) infinite,
+                subtle-scale 5s ease-in-out calc(var(--d)) infinite;
+            overflow: hidden;
+        }
+
+        /* floating motion */
+        @keyframes floaty {
+            0%   { transform: translateY(0) rotate(-0.6deg); }
+            50%  { transform: translateY(-10px) rotate(0.6deg); }
+            100% { transform: translateY(0) rotate(-0.6deg); }
+        }
+
+        /* tiny breathing scale to make it feel alive */
+        @keyframes subtle-scale {
+            0%   { transform: translateY(0) scale(1); }
+            50%  { transform: translateY(-4px) scale(1.02); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* shimmering highlight that sweeps across */
+        .badge-anim::after {
+            content: "";
+            position: absolute;
+            left: -60%;
+            top: 0;
+            width: 40%;
+            height: 100%;
+            transform: skewX(-18deg);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+            animation: shimmer 2.2s linear calc(var(--d)) infinite;
+            pointer-events: none;
+            mix-blend-mode: screen;
+            opacity: 0.95;
+        }
+
+        @keyframes shimmer {
+            0%   { transform: translateX(0) skewX(-18deg); }
+            100% { transform: translateX(360%) skewX(-18deg); }
+        }
+
+        /* hover / focus interactions */
+        .badge-anim:hover,
+        .badge-anim:focus {
+            transform: translateY(-6px) scale(1.04);
+            box-shadow: 0 12px 30px rgba(78,157,229,0.12);
+            outline: none;
+        }
+        .badge-anim:focus { box-shadow: 0 12px 30px rgba(78,157,229,0.18); }
+
+        /* subtle sheen on pointer */
+        .badge-anim::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00));
+            pointer-events: none;
+        }
+
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .badge-anim, .badge-anim::after { animation: none !important; transform: none !important; }
+        }
+        </style>
+
+        <script>
+        /* Small accessible enhancement: announce badge hover/focus to aria status if present */
+        (function(){
+            const aria = document.getElementById('ariaStatus');
+            document.querySelectorAll('.trust-badges .badge').forEach((b) => {
+                const label = b.textContent.trim();
+                ['mouseenter','focus'].forEach(evt => {
+                    b.addEventListener(evt, () => { if (aria) aria.textContent = label + ' selected'; });
+                });
+                ['mouseleave','blur'].forEach(evt => {
+                    b.addEventListener(evt, () => { if (aria) aria.textContent = ''; });
+                });
+            });
+        })();
+        </script>
+
+        <style>
+            /* Hero enhancements: animated orbs, CTA pulse and subtle parallax */
+            #hero { position: relative; overflow: hidden; padding: 4.5rem 5% 3.5rem; transition: transform 0.25s ease; }
+
+            /* Visual orbs */
+            .hero-visuals { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+            .orb { position: absolute; border-radius: 50%; filter: blur(30px); opacity: 0.65; mix-blend-mode: screen; transform: translate3d(0,0,0); }
+            .orb-1 { width: 320px; height: 320px; left: -6%; top: 6%; background: radial-gradient(circle at 30% 30%, rgba(78,157,229,0.85), rgba(78,157,229,0.06)); animation: float 10s ease-in-out infinite; }
+            .orb-2 { width: 220px; height: 220px; right: -4%; top: 8%; background: radial-gradient(circle at 30% 30%, rgba(157,122,240,0.88), rgba(157,122,240,0.04)); animation: float 12s ease-in-out infinite; animation-delay: 1.2s; }
+            .orb-3 { width: 180px; height: 180px; left: 10%; bottom: -6%; background: radial-gradient(circle at 30% 30%, rgba(74,222,128,0.85), rgba(74,222,128,0.04)); animation: float 9s ease-in-out infinite; animation-delay: 0.6s; }
+
+            .cta-glow { position: absolute; left: 50%; bottom: 3.6rem; transform: translateX(-50%); width: 360px; height: 80px; background: linear-gradient(90deg, rgba(78,157,229,0.12), rgba(157,122,240,0.10)); filter: blur(22px); border-radius: 999px; z-index: 0; pointer-events: none; }
+
+            @keyframes float {
+                0% { transform: translateY(0) scale(1); }
+                50% { transform: translateY(-22px) scale(1.03); }
+                100% { transform: translateY(0) scale(1); }
+            }
+
+            /* CTA pulse and lift */
+            .hero-actions { position: relative; z-index: 2; margin-top: 1.2rem; }
+            .hero-btn { transform-origin: center; will-change: transform, box-shadow; }
+            .pulse { animation: pulse 2.6s infinite cubic-bezier(.4,0,.2,1); box-shadow: 0 8px 28px rgba(78,157,229,0.12); }
+            @keyframes pulse {
+                0% { transform: translateY(0) scale(1); box-shadow: 0 8px 24px rgba(78,157,229,0.12); }
+                50% { transform: translateY(-6px) scale(1.02); box-shadow: 0 14px 40px rgba(78,157,229,0.18); }
+                100% { transform: translateY(0) scale(1); box-shadow: 0 8px 24px rgba(78,157,229,0.12); }
+            }
+
+            /* subtle hero text z-index and motion */
+            .hero-title, .hero-subtitle { position: relative; z-index: 2; text-wrap: balance; }
+            .hero-title { font-size: 2.8rem; margin-bottom: 0.6rem; }
+            .hero-subtitle { font-size: 1.15rem; color: #cfd8e6; margin-bottom: 1rem; max-width: 900px; }
+
+            /* scroll button bounce - use a lighter bounce than other sections */
+            .scroll-down { z-index: 3; animation: scrollBounce 1.8s infinite; }
+            @keyframes scrollBounce {
+                0% { transform: translateY(0); opacity: 1; }
+                50% { transform: translateY(-8px); opacity: 0.95; }
+                100% { transform: translateY(0); opacity: 1; }
+            }
+
+            /* responsiveness and layering */
+            @media (max-width: 768px) {
+                .orb-1, .orb-2, .orb-3 { filter: blur(22px); opacity: 0.5; }
+                .hero-title { font-size: 2.2rem; }
+                .cta-glow { width: 260px; bottom: 3rem; }
+            }
+
+            /* Respect reduced motion preference */
+            @media (prefers-reduced-motion: reduce) {
+                .orb, .pulse, .scroll-down { animation: none !important; transition: none !important; }
+            }
+        </style>
+
+        <script>
+            (function () {
+                const hero = document.getElementById('hero');
+                const orbs = hero?.querySelectorAll('.orb');
+                // Parallax micro-interaction: subtle movement of orbs following cursor
+                if (hero && orbs && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                    hero.addEventListener('mousemove', (e) => {
+                        const rect = hero.getBoundingClientRect();
+                        const px = (e.clientX - rect.left) / rect.width - 0.5; // -0.5 .. 0.5
+                        const py = (e.clientY - rect.top) / rect.height - 0.5;
+                        orbs.forEach((orb, i) => {
+                            const depth = (i + 1) * 6; // different movement per orb
+                            orb.style.transform = `translate3d(${px * depth}px, ${py * -depth}px, 0)`;
+                        });
+                    });
+                    // Reset on mouseleave
+                    hero.addEventListener('mouseleave', () => orbs.forEach(o => o.style.transform = 'translate3d(0,0,0)'));
+                }
+
+                // Simple entrance sparkle for hero title and subtitle to attract attention (non-blocking)
+                document.addEventListener('DOMContentLoaded', () => {
+                    const title = document.querySelector('.hero-title');
+                    const sub = document.querySelector('.hero-subtitle');
+                    // Slight staggered reveal if not already animated by page script
+                    if (title && !title.classList.contains('animated')) {
+                        title.style.opacity = '0';
+                        title.style.transform = 'translateY(18px)';
+                        setTimeout(() => { title.style.transition = 'opacity .9s ease, transform .9s ease'; title.style.opacity = '1'; title.style.transform = 'translateY(0)'; }, 120);
+                    }
+                    if (sub && !sub.classList.contains('animated')) {
+                        sub.style.opacity = '0';
+                        sub.style.transform = 'translateY(18px)';
+                        setTimeout(() => { sub.style.transition = 'opacity .9s ease .28s, transform .9s ease .28s'; sub.style.opacity = '1'; sub.style.transform = 'translateY(0)'; }, 400);
+                    }
+                });
+            })();
+        </script>
+    </section>
+    <style>
+        /* Slightly raise hero content: reduce translate distance and tighten top spacing */
+        #hero { padding-top: 0; }
+        .hero-title, .hero-subtitle, .hero-btn {
+            opacity: 0;
+            transform: translateY(28px); /* was 40px - shorter distance = appears higher */
+            transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+        }
+        .hero-title.animated {
+            opacity: 1;
+            transform: translateY(-2px); /* slight lift when animated to sit higher */
+            transition-delay: 0.1s;
+        }
+        .hero-subtitle.animated {
+            opacity: 1;
+            transform: translateY(-2px);
+            transition-delay: 0.5s;
+        }
+        .hero-btn.animated {
+            opacity: 1;
+            transform: translateY(-2px);
+            transition-delay: 0.9s;
+        }
+        .highlight-gradient {
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+            animation: gradient-move 2.5s linear infinite alternate;
+        }
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.querySelector('.hero-title')?.classList.add('animated');
+            }, 100);
+            setTimeout(function () {
+                document.querySelector('.hero-subtitle')?.classList.add('animated');
+            }, 500);
+            setTimeout(function () {
+                document.querySelector('.hero-btn')?.classList.add('animated');
+            }, 900);
+        });
+    </script>
+
+    <!-- Hero extras: trust badges, scroll button, ARIA status, and keyboard shortcut -->
+    <style>
+    .trust-badges { display:flex; gap:0.6rem; margin-top:0.8rem; }
+        .badge { background: rgba(255,255,255,0.03); padding:0.45rem 0.7rem; border-radius:10px; color:#e6eef8; font-weight:600; font-size:0.9rem; }
+        .badge strong { color:#fff; margin-right:6px; }
+    .hero-actions { display:flex; gap:0.6rem; align-items:center; justify-content:center; width:100%; margin-top:1rem; flex-wrap:wrap; }
+    /* Ensure the primary CTA can center independently if needed */
+    #exploreSolutions { margin: 0 0.25rem; }
+        .hero-contact { background:transparent; border:1px solid rgba(255,255,255,0.08); }
+        .scroll-down { position:absolute; bottom:1.1rem; left:50%; transform:translateX(-50%); background:transparent; border:0; color:#fff; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0.6rem; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.25); }
+        .visually-hidden { position:absolute !important; height:1px; width:1px; overflow:hidden; clip:rect(1px,1px,1px,1px); white-space:nowrap; }
+        /* focus visible for keyboard users */
+        :focus { outline: none; }
+        :focus-visible { outline: 3px solid rgba(78,157,229,0.9); outline-offset:3px; }
+        @media (max-width:600px) { .trust-badges { flex-wrap:wrap; margin-top:0.6rem; } .scroll-down { bottom:0.6rem; } }
+        @media (max-width:420px) { #hero { padding-top:2.6rem; } }
+    </style>
+
+    <div id="ariaStatus" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+    <script>
+        // Hero extras: scroll button and keyboard shortcut
+        (function(){
+            function smoothScrollTo(selector) {
+                const el = document.querySelector(selector);
+                if (!el) return;
+                el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const status = document.getElementById('ariaStatus');
+                status && (status.textContent = 'Scrolled to ' + (el.getAttribute('aria-label') || selector.replace('#','')) );
+            }
+
+            const scrollBtn = document.getElementById('scrollDownBtn');
+            scrollBtn?.addEventListener('click', function(){ smoothScrollTo(this.dataset.target); });
+
+            // Keyboard shortcut: press 'c' to open contact (mailto)
+            document.addEventListener('keydown', function(e){
+                if (e.key === 'c' || e.key === 'C') {
+                    const contact = document.getElementById('contactMail');
+                    if (contact) {
+                        // open mail client
+                        window.location.href = contact.getAttribute('href');
+                        const status = document.getElementById('ariaStatus');
+                        status && (status.textContent = 'Opening contact email client');
+                    }
+                }
+            });
+
+            // Announce when hero CTA is focused
+            const explore = document.getElementById('exploreSolutions');
+            explore?.addEventListener('focus', function(){
+                const status = document.getElementById('ariaStatus');
+                status && (status.textContent = 'Explore Solutions button focused');
+            });
+        })();
+    </script>
+
+    <!-- AI Services Section -->
+    <section id="ai-services" class="scroll-animate">
+        <div class="section-title">
+            <h2>AI-Powered Language Services</h2>
+            <p>Advanced cross-selling data strategies for Language Service Providers</p>
+        </div>
+        <div class="features">
+            <div class="feature-card scroll-animate">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Data Optimization</h3>
+                <p>Maximize the value of your language data through intelligent analysis and repurposing.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <i class="fas fa-robot feature-icon"></i>
+                <h3>AI Integration</h3>
+                <p>Seamlessly integrate AI services to enhance your language processing capabilities.</p>
+            </div>
+            <div class="feature-card scroll-animate">
+                <i class="fas fa-language feature-icon"></i>
+                <h3>Cross-Selling</h3>
+                <p>Unlock new revenue streams by effectively leveraging your existing data assets.</p>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3 style="text-align:center; font-size:2rem; color:#4e9de5; margin-bottom:1.5rem; letter-spacing:0.5px; font-weight:700; text-shadow:0 2px 8px rgba(78,157,229,0.10); background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+                How AI Transforms Language Services
+            </h3>
+            <div class="info-grid">
+                <div class="info-card scroll-animate">
+                    <h3>Natural Language Processing</h3>
+                    <p>Our AI systems utilize advanced NLP algorithms to understand context, sentiment, and nuance in over 100 languages, enabling accurate translations and cultural adaptations.</p>
+                </div>
+                <div class="info-card scroll-animate">
+                    <h3>Machine Learning Models</h3>
+                    <p>Continuous learning algorithms improve translation quality over time, adapting to industry-specific terminology and client preferences.</p>
+                </div>
+                <div class="info-card scroll-animate">
+                    <h3>Real-Time Processing</h3>
+                    <p>AI-powered systems can process and translate content in real-time, enabling live multilingual communication and support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.7s cubic-bezier(.4,0,.2,1), transform 0.7s cubic-bezier(.4,0,.2,1);
+        }
+        .scroll-animate.visible {
+            opacity: 1;
+            transform: none;
+        }
+    </style>
+    <script>
+        // Scroll animation for .scroll-animate elements
+        document.addEventListener('DOMContentLoaded', function () {
+            function revealOnScroll() {
+                document.querySelectorAll('.scroll-animate').forEach(function (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 60) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+
+    <!-- Stats Section -->
+    <section class="stats scroll-animate">
+        <div class="stats-container">
+            <div class="stat-item scroll-animate">
+                <div class="stat-number" data-target="75">0%</div>
+                <div class="stat-desc">Data Utilization</div>
+            </div>
+            <div class="stat-item scroll-animate">
+                <div class="stat-number" data-target="90">0%</div>
+                <div class="stat-desc">Client Satisfaction</div>
+            </div>
+            <div class="stat-item scroll-animate">
+                <div class="stat-number" data-target="70">0%</div>
+                <div class="stat-desc">Cost Reduction</div>
+            </div>
+            <div class="stat-item scroll-animate">
+                <div class="stat-number" data-target="80">0%</div>
+                <div class="stat-desc">Faster Processing</div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Animated counter for stats section
+        document.addEventListener('DOMContentLoaded', function () {
+            function animateStats() {
+                const stats = document.querySelectorAll('.stat-number');
+                stats.forEach(stat => {
+                    const target = +stat.getAttribute('data-target');
+                    let count = 0;
+                    const duration = 1200;
+                    const step = Math.ceil(target / (duration / 16));
+                    function update() {
+                        count += step;
+                        if (count >= target) {
+                            stat.textContent = target + '%';
+                        } else {
+                            stat.textContent = count + '%';
+                            requestAnimationFrame(update);
+                        }
+                    }
+                    update();
+                });
+            }
+            // Animate when stats section is in viewport
+            let animated = false;
+            function onScroll() {
+                const statsSection = document.querySelector('.stats');
+                if (!statsSection) return;
+                const rect = statsSection.getBoundingClientRect();
+                if (!animated && rect.top < window.innerHeight - 100) {
+                    animateStats();
+                    animated = true;
+                }
+            }
+            window.addEventListener('scroll', onScroll);
+            onScroll();
+        });
+    </script>
+
+    <!-- Cybersecurity Section -->
+    <section id="cybersecurity" class="cyber-strategies scroll-animate">
+        <div class="section-title">
+            <h2>AI Cybersecurity Protection Strategies</h2>
+            <p>Comprehensive security solutions for the modern digital landscape</p>
+        </div>
+        <div class="strategies">
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(78,157,229,0.10) 0%, rgba(122,106,240,0.08) 100%); box-shadow: 0 4px 18px rgba(78,157,229,0.10); border-left: 4px solid #4e9de5;">
+                <i class="fas fa-shield-alt" style="color:#4e9de5; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#4e9de5;">Zero Trust</h3>
+                <p>Never trust, always verify. Implement strict identity verification for every user and device.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#1f486e; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">Identity</span>
+                    <span style="background:#35305a; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">Zero Trust</span>
+                </div>
+            </div>
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(122,106,240,0.10) 0%, rgba(78,157,229,0.08) 100%); box-shadow: 0 4px 18px rgba(122,106,240,0.10); border-left: 4px solid #7a6af0;">
+                <i class="fas fa-cloud" style="color:#7a6af0; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#7a6af0;">Cloud Security</h3>
+                <p>Comprehensive protection for cloud infrastructure and applications. All data is encrypted.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#557769; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">Cloud</span>
+                    <span style="background:#5a5e42; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">SaaS</span>
+                </div>
+            </div>
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(74,222,128,0.10) 0%, rgba(78,157,229,0.08) 100%); box-shadow: 0 4px 18px rgba(74,222,128,0.10); border-left: 4px solid #4ade80;">
+                <i class="fas fa-key" style="color:#4ade80; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#4ade80;">Identity Management</h3>
+                <p>Advanced identity and access management solutions. All user data is encrypted and protected.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#447255; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">IAM</span>
+                    <span style="background:#456380; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">Access</span>
+                </div>
+            </div>
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(248,113,113,0.10) 0%, rgba(78,157,229,0.08) 100%); box-shadow: 0 4px 18px rgba(248,113,113,0.10); border-left: 4px solid #f87171;">
+                <i class="fas fa-lock" style="color:#f87171; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#f87171;">Privacy First</h3>
+                <p>Built-in privacy protections across all systems and processes. Always prioritize user privacy.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#664242; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">Privacy</span>
+                    <span style="background:#3d376b; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">Compliance</span>
+                </div>
+            </div>
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(251,191,36,0.10) 0%, rgba(78,157,229,0.08) 100%); box-shadow: 0 4px 18px rgba(251,191,36,0.10); border-left: 4px solid #fbbf24;">
+                <i class="fas fa-code-branch" style="color:#fbbf24; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#fbbf24;">DevSecOps</h3>
+                <p>Integrate security throughout the development lifecycle. Automate security testing and compliance checks.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#74694f; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">DevOps</span>
+                    <span style="background:#3f5f7e; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">Automation</span>
+                </div>
+            </div>
+            <div class="strategy scroll-animate" style="background: linear-gradient(120deg, rgba(157,122,240,0.10) 0%, rgba(78,157,229,0.08) 100%); box-shadow: 0 4px 18px rgba(157,122,240,0.10); border-left: 4px solid #9d7af0;">
+                <i class="fas fa-link" style="color:#9d7af0; font-size:2.2rem; margin-bottom:1rem;"></i>
+                <h3 style="color:#9d7af0;">Supply Chain</h3>
+                <p>End-to-end security for your supply chain ecosystem. Always ensure the integrity and security.</p>
+                <div style="margin-top:1rem;">
+                    <span style="background:#5a5e42; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px; margin-right:0.4rem;">Supply Chain</span>
+                    <span style="background:#557769; color:#fff; font-size:0.92rem; padding:0.25rem 0.8rem; border-radius:18px;">Risk</span>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative SVG divider -->
+        <div style="margin-top:2.5rem;">
+            <svg width="100%" height="40" viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:block;">
+                <path d="M0,20 Q360,40 720,20 T1440,20 V40 H0 Z" fill="url(#cyber-gradient)" opacity="0.18"/>
+                <defs>
+                    <linearGradient id="cyber-gradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#4e9de5"/>
+                        <stop offset="1" stop-color="#7a6af0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+    <!-- Advanced Threat Protection Section -->
+    <section class="cyber-strategies scroll-animate">
+        <div class="info-section">
+            <h3 style="text-align:center; font-size:2rem; color:#4e9de5; margin-bottom:1.5rem; letter-spacing:0.5px; font-weight:700; text-shadow:0 2px 8px rgba(78,157,229,0.10); background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%); -webkit-background-clip: text; background-clip: text; color: transparent;">
+            Advanced Threat Protection
+            </h3>
+            <div class="info-grid advanced-threat-grid">
+            <div class="info-card scroll-animate" style="border-left: 4px solid #4e9de5; box-shadow: 0 4px 18px rgba(78,157,229,0.08); background: linear-gradient(120deg, rgba(78,157,229,0.07) 0%, rgba(122,106,240,0.06) 100%);">
+                <h3>
+                <i class="fas fa-search" style="color:#4e9de5; margin-right:8px;"></i>
+                Behavioral Analysis
+                </h3>
+                <p>Our AI systems monitor user and system behaviors to detect anomalies that may indicate security threats, enabling proactive response.</p>
+                <div style="margin-top:1.2rem;">
+                <span style="background:#1f486e; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">Anomaly Detection</span>
+                <span style="background:#35305a; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Proactive</span>
+                </div>
+            </div>
+            <div class="info-card scroll-animate" style="border-left: 4px solid #7a6af0; box-shadow: 0 4px 18px rgba(122,106,240,0.08); background: linear-gradient(120deg, rgba(122,106,240,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                <h3>
+                <i class="fas fa-bolt" style="color:#7a6af0; margin-right:8px;"></i>
+                Predictive Threat Intelligence
+                </h3>
+                <p>Machine learning algorithms analyze global threat data to predict and prevent emerging cybersecurity risks before they impact your systems.</p>
+                <div style="margin-top:1.2rem;">
+                <span style="background:#5a5e42; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">ML Powered</span>
+                <span style="background:#557769; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Threat Intel</span>
+                </div>
+            </div>
+            <div class="info-card scroll-animate" style="border-left: 4px solid #4ade80; box-shadow: 0 4px 18px rgba(74,222,128,0.08); background: linear-gradient(120deg, rgba(74,222,128,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                <h3>
+                <i class="fas fa-robot" style="color:#4ade80; margin-right:8px;"></i>
+                Automated Incident Response
+                </h3>
+                <p>AI-driven systems can automatically contain and neutralize threats, minimizing damage and reducing response time from hours to milliseconds.</p>
+                <div style="margin-top:1.2rem;">
+                <span style="background:#447255; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">Automation</span>
+                <span style="background:#456380; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Rapid Response</span>
+                </div>
+            </div>
+            </div>
+            <!-- Additional Design: Visual Timeline for Threat Response -->
+            <div class="threat-timeline scroll-animate" style="margin:2.5rem auto 0; max-width:900px;">
+            <h4 style="text-align:center; color:#7a6af0; font-size:1.25rem; margin-bottom:1.5rem; font-weight:600; letter-spacing:0.2px;">
+                Threat Response Journey
+            </h4>
+            <div class="threat-timeline-steps" style="display:flex; flex-direction:row; align-items:flex-start; justify-content:space-between; gap:1.5rem; flex-wrap:wrap;">
+                <!-- Detection Step -->
+                <div style="flex:1; min-width:180px; text-align:center;">
+                    <div style="background:linear-gradient(135deg,#234a6e 0%,#3e357e 100%); color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.7rem; font-size:1.7rem; box-shadow:0 2px 12px rgba(78,157,229,0.12); border:3px solid #fff;">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div style="font-weight:700; color:#4e9de5; font-size:1.08rem; letter-spacing:0.2px;">Detection</div>
+                    <div style="font-size:0.98rem; color:#a0aec0; margin-top:0.3rem;">AI identifies suspicious activity in real time detection.</div>
+                    <div style="position:absolute; left:50%; top:54px; transform:translateX(-50%); width:38px; height:4px; background:linear-gradient(90deg,#4e9de5 0%,#7a6af0 100%); border-radius:2px; opacity:0.5;"></div>
+                </div>
+                <!-- Analysis Step -->
+                <div style="flex:1; min-width:180px; text-align:center;">
+                    <div style="background:linear-gradient(135deg,#403781 0%,#27693f 100%); color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.7rem; font-size:1.7rem; box-shadow:0 2px 12px rgba(122,106,240,0.12); border:3px solid #fff;">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div style="font-weight:700; color:#7a6af0; font-size:1.08rem; letter-spacing:0.2px;">Analysis</div>
+                    <div style="font-size:0.98rem; color:#a0aec0; margin-top:0.3rem;">Behavioral and threat intelligence analysis performed.</div>
+                    <div style="position:absolute; left:50%; top:54px; transform:translateX(-50%); width:38px; height:4px; background:linear-gradient(90deg,#7a6af0 0%,#4ade80 100%); border-radius:2px; opacity:0.5;"></div>
+                </div>
+                <!-- Response Step -->
+                <div style="flex:1; min-width:180px; text-align:center;">
+                    <div style="background:linear-gradient(135deg,#287745 0%,#7a3939 100%); color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.7rem; font-size:1.7rem; box-shadow:0 2px 12px rgba(74,222,128,0.12); border:3px solid #fff;">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div style="font-weight:700; color:#4ade80; font-size:1.08rem; letter-spacing:0.2px;">Response</div>
+                    <div style="font-size:0.98rem; color:#a0aec0; margin-top:0.3rem;">Automated containment and neutralization of threat.</div>
+                    <div style="position:absolute; left:50%; top:54px; transform:translateX(-50%); width:38px; height:4px; background:linear-gradient(90deg,#4ade80 0%,#f87171 100%); border-radius:2px; opacity:0.5;"></div>
+                </div>
+                <!-- Recovery Step -->
+                <div style="flex:1; min-width:180px; text-align:center;">
+                    <div style="background:linear-gradient(135deg,#773535 0%,#705511 100%); color:#fff; width:54px; height:54px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 0.7rem; font-size:1.7rem; box-shadow:0 2px 12px rgba(248,113,113,0.12); border:3px solid #fff;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div style="font-weight:700; color:#f87171; font-size:1.08rem; letter-spacing:0.2px;">Recovery</div>
+                    <div style="font-size:0.98rem; color:#a0aec0; margin-top:0.3rem;">System integrity restored and incident reported alerts.</div>
+                </div>
+            </div>
+            <style>
+                .threat-timeline-steps > div:hover {
+                    box-shadow: 0 4px 18px rgba(78,157,229,0.13), 0 2px 8px rgba(122,106,240,0.09);
+                    background: rgba(255,255,255,0.03);
+                    transition: box-shadow 0.3s, background 0.3s;
+                }
+                .threat-timeline-steps > div > div[style*="width:54px"] {
+                    transition: transform 0.3s;
+                }
+                .threat-timeline-steps > div:hover > div[style*="width:54px"] {
+                    transform: scale(1.08) rotate(-3deg);
+                    box-shadow: 0 6px 24px rgba(78,157,229,0.18);
+                }
+                .threat-timeline-steps > div > div[style*="font-weight:700"] {
+                    text-shadow: 0 2px 8px rgba(78,157,229,0.10);
+                }
+                @media (max-width:900px) {
+                    .threat-timeline-steps {
+                        flex-direction: column !important;
+                        gap: 1.2rem !important;
+                    }
+                    .threat-timeline-steps > div > div[style*="width:54px"] {
+                        width:38px !important;
+                        height:38px !important;
+                        font-size:1.1rem !important;
+                    }
+                }
+            </style>
+            <div style="margin:1.5rem auto 0; max-width:700px; text-align:center;">
+                <svg width="100%" height="18" viewBox="0 0 700 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0" y="8" width="700" height="2" rx="1" fill="url(#timeline-gradient)" />
+                <defs>
+                    <linearGradient id="timeline-gradient" x1="0" y1="0" x2="700" y2="0" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#4e9de5"/>
+                    <stop offset="0.33" stop-color="#7a6af0"/>
+                    <stop offset="0.66" stop-color="#4ade80"/>
+                    <stop offset="1" stop-color="#f87171"/>
+                    </linearGradient>
+                </defs>
+                </svg>
+            </div>
+            </div>
+            <style>
+            .threat-timeline .fa-eye,
+            .threat-timeline .fa-bolt,
+            .threat-timeline .fa-shield-alt,
+            .threat-timeline .fa-check-circle {
+                filter: drop-shadow(0 2px 6px rgba(78,157,229,0.10));
+            }
+            @media (max-width: 900px) {
+                .threat-timeline-steps {
+                flex-direction: column !important;
+                gap: 1.2rem !important;
+                }
+            }
+            @media (max-width: 600px) {
+                .info-grid.advanced-threat-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1.2rem !important;
+                }
+                .threat-timeline {
+                margin: 1.2rem auto 0 !important;
+                max-width: 98vw !important;
+                padding: 0 0.5rem;
+                }
+                .threat-timeline-steps > div {
+                min-width: 0 !important;
+                margin-bottom: 0.7rem;
+                }
+                .threat-timeline-steps > div > div[style*="width:48px"] {
+                width: 38px !important;
+                height: 38px !important;
+                font-size: 1.1rem !important;
+                }
+                .threat-timeline h4 {
+                font-size: 1.05rem !important;
+                margin-bottom: 1rem !important;
+                }
+            }
+            @media (max-width: 400px) {
+                .threat-timeline {
+                padding: 0 0.2rem;
+                }
+                .threat-timeline-steps > div > div[style*="width:38px"] {
+                width: 30px !important;
+                height: 30px !important;
+                font-size: 0.9rem !important;
+                }
+            }
+            </style>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="scroll-animate">
+        <div class="section-title">
+            <h2>Security in Action</h2>
+            <p>Real-time threat detection and response capabilities</p>
+        </div>
+        <div class="terminal scroll-animate" id="animatedTerminal">
+            <div class="terminal-header">
+                <div class="terminal-title">Security Monitoring Console</div>
+                <div class="terminal-status">Live</div>
+            </div>
+            <div class="terminal-body" id="terminalBody">
+                <!-- Animated lines will be injected here -->
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h3 style="
+                text-align: center;
+                font-size: 2rem;
+                color: #4e9de5;
+                margin-bottom: 1.5rem;
+                letter-spacing: 0.5px;
+                font-weight: 700;
+                text-shadow: 0 2px 8px rgba(78,157,229,0.10);
+                background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+            ">
+                Our Security Solutions
+            </h3>
+            <div class="info-grid">
+                <div class="info-card scroll-animate" style="border-left: 4px solid #7a6af0; box-shadow: 0 4px 18px rgba(78,157,229,0.08); background: linear-gradient(120deg, rgba(78,157,229,0.07) 0%, rgba(122,106,240,0.06) 100%);">
+                    <h3>
+                        <i class="fas fa-shield-alt" style="color:#7a6af0; margin-right:8px;"></i>
+                        Enterprise Protection 
+                    </h3>
+                    <p>Comprehensive security solution for large organizations, including advanced threat detection, data loss prevention, and compliance management.</p>
+                    <div style="margin-top:1.2rem;">
+                        <span style="background:#1f486e; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">AI-Driven</span>
+                        <span style="background:#35305a; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Enterprise</span>
+                    </div>
+                </div>
+                <div class="info-card scroll-animate" style="border-left: 4px solid #4e9de5; box-shadow: 0 4px 18px rgba(122,106,240,0.08); background: linear-gradient(120deg, rgba(122,106,240,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                    <h3>
+                        <i class="fas fa-cloud" style="color:#4e9de5; margin-right:8px;"></i>
+                        Cloud Security Gateway
+                    </h3>
+                    <p>Specialized protection for cloud environments with seamless integration for AWS, Google Cloud, OneDrive, Azure, and Google Cloud platforms.</p>
+                    <div style="margin-top:1.2rem;">
+                        <span style="background:#557769; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">Cloud</span>
+                        <span style="background:#5a5e42; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Integration</span>
+                    </div>
+                </div>
+                <div class="info-card scroll-animate" style="border-left: 4px solid #4ade80; box-shadow: 0 4px 18px rgba(74,222,128,0.08); background: linear-gradient(120deg, rgba(74,222,128,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                    <h3>
+                        <i class="fas fa-eye" style="color:#4ade80; margin-right:8px;"></i>
+                        24/7 Threat Monitoring
+                    </h3>
+                    <p>Continuous monitoring and automated alerting to detect and respond to threats instantly, reducing incident response time. All threats are analyzed.</p>
+                    <div style="margin-top:1.2rem;">
+                        <span style="background:#447255; color:#ffffff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">Real-Time</span>
+                        <span style="background:#456380; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Monitoring</span>
+                    </div>
+                </div>
+                <div class="info-card scroll-animate" style="border-left: 4px solid #f87171; box-shadow: 0 4px 18px rgba(248,113,113,0.08); background: linear-gradient(120deg, rgba(248,113,113,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                    <h3>
+                        <i class="fas fa-lock" style="color:#f87171; margin-right:8px;"></i>
+                        Data Encryption Services
+                    </h3>
+                    <p>End-to-end encryption for sensitive data at rest and in transit, ensuring privacy and regulatory compliance. All data is encrypted using industry-standard protocols.</p>
+                    <div style="margin-top:1.2rem;">
+                        <span style="background:#664242; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">Encryption</span>
+                        <span style="background:#3d376b; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Compliance</span>
+                    </div>
+                </div>
+                <div class="info-card scroll-animate" style="border-left: 4px solid #fbbf24; box-shadow: 0 4px 18px rgba(251,191,36,0.08); background: linear-gradient(120deg, rgba(251,191,36,0.07) 0%, rgba(78,157,229,0.06) 100%);">
+                    <h3>
+                        <i class="fas fa-envelope-open-text" style="color:#fbbf24; margin-right:8px;"></i>
+                        Phishing Protection
+                    </h3>
+                    <p>Advanced AI filters and real-time analysis to block phishing attempts and malicious email threats before they reach your users. All time scanned for phishing links.</p>
+                    <div style="margin-top:1.2rem;">
+                        <span style="background:#74694f; color:#ffffff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px; margin-right:0.5rem;">AI Filter</span>
+                        <span style="background:#3f5f7e; color:#fff; font-size:0.95rem; padding:0.3rem 0.9rem; border-radius:20px;">Email Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // Terminal animation
+            document.addEventListener('DOMContentLoaded', function () {
+                const terminalBody = document.getElementById('terminalBody');
+                if (!terminalBody) return;
+                const lines = [
+                    { html: '<span class="terminal-command">&gt; scan network --full</span>', delay: 0 },
+                    { html: '<span class="terminal-result">SCAN COMPLETE - 0 threats detected</span>', delay: 900 },
+                    { html: '<span class="terminal-command">&gt; check system integrity</span>', delay: 700 },
+                    { html: '<span class="terminal-result">All systems secure. Integrity confirmed.</span>', delay: 800 },
+                    { html: '<span class="terminal-command">&gt; attempt access --user=admin</span>', delay: 700 },
+                    { html: '<span class="terminal-result">PASSWORD PROTECTED - Multi-factor authentication required</span>', delay: 900 },
+                    { html: '<span class="terminal-command">&gt; bypass security --method=brute-force</span>', delay: 700 },
+                    { html: '<span class="terminal-alert">HACKING DETECTED - Neutralizing threat source</span>', delay: 900 },
+                    { html: '<span class="terminal-result">Threat neutralized. System secure.</span>', delay: 900 }
+                ];
+                let idx = 0;
+                function showLine() {
+                    if (idx >= lines.length) return;
+                    const p = document.createElement('p');
+                    p.innerHTML = lines[idx].html;
+                    terminalBody.appendChild(p);
+                    terminalBody.scrollTop = terminalBody.scrollHeight;
+                    idx++;
+                    if (idx < lines.length) {
+                        setTimeout(showLine, lines[idx].delay);
+                    }
+                }
+                // Animate when section is visible
+                function animateTerminalOnScroll() {
+                    const terminalSection = document.getElementById('animatedTerminal');
+                    if (!terminalSection) return;
+                    const rect = terminalSection.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 80 && terminalBody.childElementCount === 0) {
+                        showLine();
+                        window.removeEventListener('scroll', animateTerminalOnScroll);
+                    }
+                }
+                window.addEventListener('scroll', animateTerminalOnScroll);
+                animateTerminalOnScroll();
+            });
+        </script>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="section-title">
+            <h2>What Our Clients Say</h2>
+            <p>Trusted by industry leaders worldwide</p>
+        </div>
+        <div class="testimonials">
+            <div class="testimonial scroll-animate">
+                <div class="testimonial-text">
+                    "NeuroSecure's AI cybersecurity solutions have transformed our threat detection capabilities. We've seen a 68% reduction in security incidents since implementation."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://cdn.pixabay.com/photo/2020/09/29/13/27/woman-5612838_640.jpg" alt="Sarah Johnson" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah Johnson</h4>
+                        <p>CTO, TechCorp International</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial scroll-animate">
+                <div class="testimonial-text">
+                    "The AI-powered language services have enabled us to expand into new markets with confidence. The accuracy and cultural sensitivity of translations are exceptional."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Rodriguez" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael Rodriguez</h4>
+                        <p>Global Expansion Director, LinguaWorld</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial scroll-animate">
+                <div class="testimonial-text">
+                    "Implementing Zero Trust architecture with NeuroSecure's guidance has significantly strengthened our security posture while maintaining operational efficiency."
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="https://randomuser.me/api/portraits/women/46.jpg" alt="Amanda Lee" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" />
+                    </div>
+                    <div class="author-info">
+                        <h4>Amanda Lee</h4>
+                        <p>Security Director, Financial Services Inc.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Animate testimonials on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            function revealOnScroll() {
+                document.querySelectorAll('#testimonials .scroll-animate').forEach(function (el) {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 60) {
+                        el.classList.add('visible');
+                    }
+                });
+            }
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+
+    <!-- ChatGPT Feature -->
+    <div class="chatbot-container">
+        <button class="chatbot-button" id="chatbotButton">
+            <i class="fas fa-robot"></i>
+        </button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-title">
+                    <i class="fas fa-robot"></i>
+                    <span>NeuroSecure Assistant</span>
+                </div>
+                <button class="chatbot-close" id="chatbotClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot-message">
+                    Hello! I'm your NeuroSecure AI assistant. How can I help you with cybersecurity today?
+                </div>
+                <div class="message bot-message">
+                    You can ask me about:
+                    <br>• Zero Trust security
+                    <br>• Cloud security strategies
+                    <br>• AI-powered threat detection
+                    <br>• Data encryption methods
+                    <br>• Or any other cybersecurity concerns
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Type your question here...">
+                <button id="chatbotSend">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <i class="fas fa-brain" style="color:#4e9de5; margin-right:8px;"></i> NeuroSecure
+            </div>
+            <div class="footer-links">
+                <a href="https://www.facebook.com/jahidads1" title="Facebook" target="_blank" rel="noopener">
+                    <i class="fab fa-facebook-f"></i> Facebook
+                </a>
+                <a href="https://www.instagram.com/jahidads" title="Instagram" target="_blank" rel="noopener">
+                    <i class="fab fa-instagram"></i> Instagram
+                </a>
+                <a href="https://bd.linkedin.com/in/jahidads" title="LinkedIn" target="_blank" rel="noopener">
+                    <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://www.youtube.com/@jahidads" title="YouTube" target="_blank" rel="noopener">
+                    <i class="fab fa-youtube"></i> YouTube
+                </a>
+                <a href="https://www.threads.com/@jahidads" title="Threads" target="_blank" rel="noopener">
+                    <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/threads.svg" alt="Threads" style="width:1.1em; height:1.1em; vertical-align:middle; filter:invert(70%);" /> Threads
+                </a>
+                <a href="https://github.com/jahidads" title="GitHub" target="_blank" rel="noopener">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.x.com/@jh6463" title="Twitter/X" target="_blank" rel="noopener">
+                    <i class="fab fa-x-twitter"></i> X (Twitter)
+                </a>
+            </div>
+            <div style="margin-top:2rem; display:flex; gap:1.5rem; flex-wrap:wrap; justify-content:center;">
+                <a href="https://jahidads.github.io/Blog/" class="btn" style="padding:0.7rem 1.8rem; font-size:1rem; background:linear-gradient(90deg,#4e9de5 0%,#7a6af0 100%); color:#fff; border-radius:30px; text-decoration:none; font-weight:600; box-shadow:0 2px 8px rgba(78,157,229,0.15);">Resources</a>
+                <a href="https://jahidads.github.io/Webinars/" class="btn" style="padding:0.7rem 1.8rem; font-size:1rem; background:linear-gradient(90deg,#7a6af0 0%,#4e9de5 100%); color:#fff; border-radius:30px; text-decoration:none; font-weight:600; box-shadow:0 2px 8px rgba(122,106,240,0.15);">Webinars</a>
+                <a href="https://jahidads.github.io/Portfolio/" class="btn" style="padding:0.7rem 1.8rem; font-size:1rem; background:linear-gradient(90deg,#4e9de5 0%,#9d7af0 100%); color:#fff; border-radius:30px; text-decoration:none; font-weight:600; box-shadow:0 2px 8px rgba(157,122,240,0.15);">Portfolio</a>
+            </div>
+        </div>
+        <div style="margin:2.5rem auto 0; max-width:600px; text-align:center; color:#a0aec0; font-size:1.05rem; background:rgba(255,255,255,0.03); border-radius:10px; padding:1.2rem 1.5rem; box-shadow:0 2px 12px rgba(78,157,229,0.07);">
+            <i class="fas fa-lock" style="color:#4e9de5; margin-right:7px;"></i>
+            <span>Military-grade encryption &bull; 24/7 threat monitoring &bull; Privacy-first approach</span>
+        </div>
+        <div class="copyright" style="margin-top:2.2rem;">
+            &copy; 2025 NeuroSecure AI. Designed by <span style="color:#4e9de5;">&#10024; Jahid Hasan</span>.
+        </div>
+    </footer>
+    <style>
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4e9de5;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .footer-links a {
+            color: #a0aec0;
+            text-decoration: none;
+            font-size: 1.08rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        .footer-links a:hover {
+            color: #fff;
+            background: linear-gradient(90deg, #4e9de5 0%, #7a6af0 100%);
+            box-shadow: 0 2px 8px rgba(78,157,229,0.10);
+        }
+        .footer-links i {
+            font-size: 1.1rem;
+        }
+        @media (max-width: 768px) {
+            .footer-links {
+                flex-direction: column;
+                gap: 0.7rem;
+            }
+            .footer-logo {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile navigation functionality
+            const mobileNavBtn = document.getElementById('mobileNavBtn');
+            const closeNavBtn = document.getElementById('closeNavBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            const overlay = document.getElementById('overlay');
+
+            if (!mobileNavBtn || !mobileNav || !closeNavBtn || !overlay) {
+                console.warn('Mobile nav: one or more elements not found', { mobileNavBtn, mobileNav, closeNavBtn, overlay });
+            } else {
+                function openMobileNav() {
+                    mobileNav.classList.add('active');
+                    overlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                    mobileNavBtn.setAttribute('aria-expanded', 'true');
+                }
+
+                function closeMobileNav() {
+                    mobileNav.classList.remove('active');
+                    overlay.classList.remove('active');
+                    document.body.style.overflow = '';
+                    mobileNavBtn.setAttribute('aria-expanded', 'false');
+                }
+
+                mobileNavBtn.addEventListener('click', openMobileNav);
+                closeNavBtn.addEventListener('click', closeMobileNav);
+                overlay.addEventListener('click', closeMobileNav);
+
+                // Close mobile nav when clicking on a link (useful for single-page anchors)
+                document.querySelectorAll('.mobile-nav a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        // allow default for external/anchor navigation, but close menu for mobile
+                        if (window.innerWidth <= 992) closeMobileNav();
+                    });
+                });
+
+                // Allow Escape key to close mobile nav
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' || e.key === 'Esc') {
+                        if (mobileNav.classList.contains('active')) closeMobileNav();
+                    }
+                });
+            }
+
+            // Mobile submenu toggles: attach click handlers to parent links that have a .dropdown sibling
+            // Use explicit toggle buttons so text links can still navigate if desired
+            const submenuToggles = document.querySelectorAll('.mobile-nav .submenu-toggle');
+            submenuToggles.forEach(btn => {
+                const li = btn.closest('li');
+                const dropdown = li ? li.querySelector('.dropdown') : null;
+                if (!dropdown) return;
+
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = dropdown.classList.toggle('open');
+                    btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+                    // Accordion behavior: close other open dropdowns
+                    if (isOpen) {
+                        document.querySelectorAll('.mobile-nav .dropdown.open').forEach(other => {
+                            if (other !== dropdown) {
+                                other.classList.remove('open');
+                                const otherBtn = other.closest('li')?.querySelector('.submenu-toggle');
+                                if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+                            }
+                        });
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links (keeps original behavior)
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || targetId === '#') return; // let default
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({ top: targetElement.offsetTop - 80, behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // ChatGPT functionality (safe initialization)
+            const chatbotButton = document.getElementById('chatbotButton');
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const chatbotClose = document.getElementById('chatbotClose');
+            const chatbotMessages = document.getElementById('chatbotMessages');
+            const chatbotInput = document.getElementById('chatbotInput');
+            const chatbotSend = document.getElementById('chatbotSend');
+
+            if (!chatbotButton || !chatbotWindow || !chatbotClose || !chatbotMessages || !chatbotInput || !chatbotSend) {
+                console.warn('Chatbot: missing elements', { chatbotButton, chatbotWindow, chatbotClose, chatbotMessages, chatbotInput, chatbotSend });
+                return;
+            }
+
+            chatbotButton.addEventListener('click', () => chatbotWindow.classList.toggle('active'));
+            chatbotClose.addEventListener('click', () => chatbotWindow.classList.remove('active'));
+
+            const responses = {
+                'hello': 'Hello! How can I assist you with cybersecurity today?',
+                'hi': 'Hi there! What cybersecurity questions can I answer for you?',
+                'zero trust': 'Zero Trust is a security framework requiring all users, both inside and outside the organization\'s network, to be authenticated, authorized, and continuously validated for security configuration and posture before being granted or keeping access to applications and data.',
+                'cloud security': 'Cloud security involves protecting cloud-based data, applications, and infrastructure from threats. Key strategies include data encryption, identity and access management, and regular security assessments.',
+                'ai security': 'AI security uses machine learning to detect and respond to threats in real-time. It can identify patterns indicative of cyber attacks and automate responses to mitigate risks.',
+                'encryption': 'Encryption converts data into a coded format to prevent unauthorized access. Modern encryption uses algorithms like AES-256 to protect data both at rest and in transit.',
+                'threat detection': 'AI-powered threat detection uses behavioral analysis to identify anomalies that may indicate security breaches. It can detect zero-day attacks and advanced persistent threats that traditional methods might miss.',
+                'privacy': 'Privacy protection involves implementing measures like data minimization, encryption, and access controls to ensure personal and sensitive information is handled securely and in compliance with regulations like GDPR and CCPA.',
+                'devsecops': 'DevSecOps integrates security practices into the DevOps workflow. It involves automated security testing, continuous monitoring, and collaboration between development, operations, and security teams.',
+                'supply chain': 'Supply chain security protects against vulnerabilities introduced through third-party vendors and software. It involves vetting partners, monitoring for risks, and implementing secure software development practices.',
+                'help': 'I can help with information about: Zero Trust, Cloud Security, AI Security, Encryption, Threat Detection, Privacy, DevSecOps, and Supply Chain security. Just ask about any of these topics!',
+                'default': 'I\'m not sure I understand. Could you please rephrase your question? I can help with cybersecurity topics like Zero Trust, Cloud Security, AI Threat Detection, and more.'
+            };
+
+            function addMessage(message, isUser = false) {
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message', isUser ? 'user-message' : 'bot-message');
+                messageElement.textContent = message;
+                chatbotMessages.appendChild(messageElement);
+                chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+            }
+
+            function processInput() {
+                const input = chatbotInput.value.trim().toLowerCase();
+                if (input === '') return;
+                addMessage(input, true);
+                chatbotInput.value = '';
+                setTimeout(() => {
+                    let response = responses.default;
+                    for (const [key, value] of Object.entries(responses)) {
+                        if (input.includes(key)) { response = value; break; }
+                    }
+                    addMessage(response);
+                }, 800);
+            }
+
+            chatbotSend.addEventListener('click', processInput);
+            chatbotInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') processInput(); });
+
+            setTimeout(() => addMessage('Type "help" to see what I can assist you with!'), 3000);
+        });
+    </script>
+</body>
+</html>
